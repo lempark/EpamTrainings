@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.438
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29020.237
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilesTasks", "FileTasks\FilesTasks.csproj", "{3E1A2C1D-5B9C-41CD-AF86-283BB604A4B1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StructAndEnumTasks", "StructAndEnumTasks\StructAndEnumTasks.csproj", "{8EF4E3B1-569A-4E02-8EC9-C4E92BA31A23}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{14605706-E9D6-4E89-B85A-83E0DA868F19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilites", "Utilites\Utilites.csproj", "{AD7322C0-0E35-4ED4-87B9-891020969EA4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{14605706-E9D6-4E89-B85A-83E0DA868F19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14605706-E9D6-4E89-B85A-83E0DA868F19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14605706-E9D6-4E89-B85A-83E0DA868F19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD7322C0-0E35-4ED4-87B9-891020969EA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD7322C0-0E35-4ED4-87B9-891020969EA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD7322C0-0E35-4ED4-87B9-891020969EA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD7322C0-0E35-4ED4-87B9-891020969EA4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

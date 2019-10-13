@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StructAndEnumTasks.Task4;
 using FileTasks;
 using System.IO;
 
@@ -19,6 +20,8 @@ namespace ConsoleApp
             //Console.WriteLine((Month)n);
             Directory.CreateDirectory("NewDirectory/dir1");
             Console.Read();
+            Colors b = Colors.Blue; 
+            
         }
     }
 }

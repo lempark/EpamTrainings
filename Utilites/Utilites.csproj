@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8EF4E3B1-569A-4E02-8EC9-C4E92BA31A23}</ProjectGuid>
+    <ProjectGuid>{AD7322C0-0E35-4ED4-87B9-891020969EA4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ClassLibrary1</RootNamespace>
-    <AssemblyName>ClassLibrary1</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <RootNamespace>Utilites</RootNamespace>
+    <AssemblyName>Utilites</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
@@ -41,18 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Task5.cs" />
-    <Compile Include="Task4.cs" />
-    <Compile Include="Task3.cs" />
-    <Compile Include="Task2.cs" />
-    <Compile Include="Task1.cs" />
+    <Compile Include="Printers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Utilites\Utilites.csproj">
-      <Project>{ad7322c0-0e35-4ed4-87b9-891020969ea4}</Project>
-      <Name>Utilites</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

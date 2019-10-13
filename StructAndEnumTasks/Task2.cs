@@ -25,29 +25,37 @@ namespace StructAndEnumTasks
 
         public struct Rectangle : ISize , ICoordinates
         {
-            public int Weidth { get { return Weidth; } set
+            #region Properties  
+            public int Weidth { get { return Weidth; }
+                set
                 {
                     if (value <= 0)
                         throw new ArgumentException("Weidth must be heigher than 0");
                     else
                         Weidth = value;
-                } }
+                }
+            }
 
-            public int Height { get { return Height; } set
+            public int Height { get { return Height; }
+                set
                 {
                     if (value <= 0)
                         throw new ArgumentException("Height must be heigher than 0");
                     else
                         Height = value; 
-                } }
+                }
+            }
 
-            public int X { get { return X; } set { X = value; } }
-            public int Y { get { return Y; } set { Y = value; } }
+            public int X { get; set; }
+            public int Y { get; set; }
+            #endregion
 
+            #region Methods
             public int Perimeter()
             {
                 return 2 * Weidth + 2 * Height;
             }
+            #endregion
         }
     }
 }

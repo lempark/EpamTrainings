@@ -4,28 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using Utilites.Printers;
 
 
 namespace FileTasks
 {
     namespace Task1
     {
-        public class ConsolePrinter : Printers.IPrinter
-        {
-            public void Print(string msg)
-            {
-                Console.WriteLine(msg);
-            }
-        }
+        
 
         public static class DirectoryVisualiser
         {
-            public static void ShowFiles(DirectoryInfo dir , Printers.IPrinter printer)
+            public static void ShowFiles(DirectoryInfo dir , IPrinter printer)
             {
                 FileInfo[] files = dir.GetFiles();
                 foreach(FileInfo file in files)
                 {
-                    printer.Print(file.Name);
+                    printer.Write(file.Name);
                 }
 
                 DirectoryInfo[] subDirectories = dir.GetDirectories();
@@ -34,7 +29,7 @@ namespace FileTasks
 
                     foreach (DirectoryInfo d in subDirectories)
                     {
-                        printer.Print(d.Name);
+                        printer.Write(d.Name);
                         ShowFiles(d, printer);
                     }
                 }
