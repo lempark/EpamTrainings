@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{14605706-E9D6-4E89-B85A-83E0DA868F19}</ProjectGuid>
+    <ProjectGuid>{B72E70C1-2D5A-4DD3-BCF0-C8567BBE4AEB}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ConsoleApp1</RootNamespace>
-    <AssemblyName>ConsoleApp1</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <RootNamespace>ConsoleApp</RootNamespace>
+    <AssemblyName>ConsoleApp</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -50,13 +50,21 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\StructAndEnumTasks\StructAndEnumTasks.csproj">
-      <Project>{8ef4e3b1-569a-4e02-8ec9-c4e92ba31a23}</Project>
-      <Name>StructAndEnumTasks</Name>
+    <ProjectReference Include="..\ExeptionsTasks\ExceptionsTasks.csproj">
+      <Project>{4b6c4e89-a98b-4a97-9048-dd5589ec5224}</Project>
+      <Name>ExceptionsTasks</Name>
     </ProjectReference>
     <ProjectReference Include="..\FileTasks\FilesTasks.csproj">
       <Project>{3e1a2c1d-5b9c-41cd-af86-283bb604a4b1}</Project>
       <Name>FilesTasks</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StructAndEnumTasks\StructAndEnumTasks.csproj">
+      <Project>{4652b25c-793a-4990-adb6-4d0e2bf286d0}</Project>
+      <Name>StructAndEnumTasks</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utilites\UserInterface.csproj">
+      <Project>{ad7322c0-0e35-4ed4-87b9-891020969ea4}</Project>
+      <Name>UserInterface</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

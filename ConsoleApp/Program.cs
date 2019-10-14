@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using StructAndEnumTasks.Task4;
-using FileTasks;
+using UserInterface;
+using StructAndEnumTasks;
 using System.IO;
-
-
+using ExeptionsTasks;
+using FileTasks;
 
 namespace ConsoleApp
 {
@@ -15,13 +11,15 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("input n_" );
-            int n = int.Parse(Console.ReadLine());
-            //Console.WriteLine((Month)n);
-            Directory.CreateDirectory("NewDirectory/dir1");
+            ConsolePrinter printer = new ConsolePrinter();
+            StructAndEnumTasksRunner structRunner = new StructAndEnumTasksRunner(printer);
+            ExceptionTaskRunner exeptionRunner = new ExceptionTaskRunner(printer);
+            FilesTasksRunner filesRunner = new FilesTasksRunner(printer);
+            exeptionRunner.DoTask5();
+            structRunner.Run();
+            exeptionRunner.Run();
+            filesRunner.Run();
             Console.Read();
-            Colors b = Colors.Blue; 
-            
         }
     }
 }
