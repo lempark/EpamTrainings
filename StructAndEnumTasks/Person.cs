@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 
 namespace StructAndEnumTasks
@@ -16,6 +17,8 @@ namespace StructAndEnumTasks
             {
                 if (String.IsNullOrEmpty(value))
                     throw new ArgumentException("Name cannot be empty");
+                if (value.Any(char.IsDigit))
+                    throw new ArgumentException("Name cannot be number");
                 else
                     name = value;
             }
@@ -26,6 +29,8 @@ namespace StructAndEnumTasks
             {
                 if (String.IsNullOrEmpty(value))
                     throw new ArgumentException("Surname cannot be empty");
+                if (value.Any(char.IsDigit))
+                    throw new ArgumentException("Surname cannot be number");
                 else
                     surname = value;
             }

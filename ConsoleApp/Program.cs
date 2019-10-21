@@ -15,7 +15,6 @@ namespace ConsoleApp
             StructAndEnumTasksRunner structRunner = new StructAndEnumTasksRunner(printer);
             ExceptionTaskRunner exeptionRunner = new ExceptionTaskRunner(printer);
             FilesTasksRunner filesRunner = new FilesTasksRunner(printer);
-            exeptionRunner.DoTask5();
             structRunner.Run();
             exeptionRunner.Run();
             filesRunner.Run();

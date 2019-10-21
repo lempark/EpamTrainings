@@ -1,12 +1,14 @@
 ﻿using System;
 using UserInterface;
 using ExceptionsTasks;
+using Logger;
 
 namespace ExeptionsTasks
 {
     public class ExceptionTaskRunner : IRunner
     {
         public IPrinter Printer { get; set; }
+        public MyLogger Logger { get; set; }
 
         public ExceptionTaskRunner(IPrinter printer)
         {
@@ -60,6 +62,7 @@ namespace ExeptionsTasks
             catch (StackOverflowException e)
             {
                 Printer.Write(e.Message);
+                Logger.WriteMessage(e.Message);
             }
             catch (IndexOutOfRangeException e)
             {
@@ -100,6 +103,8 @@ namespace ExeptionsTasks
             
         public void Run()
         {
+            Logger = new MyLogger();
+            Logger.Configuration(new FileSrc(@"C:\Users\SIB\Desktop"), LevelOfDetalization.Info);
             Printer.Write("\nExeptionTasks\n#################################################");
             DoTask1_2();
             DoTask4();

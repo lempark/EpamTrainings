@@ -4,15 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4652B25C-793A-4990-ADB6-4D0E2BF286D0}</ProjectGuid>
+    <ProjectGuid>{5F58BE37-7631-48EE-9AB5-4B35F7F028FF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StructAndEnumTasks</RootNamespace>
-    <AssemblyName>StructAndEnumTasks</AssemblyName>
+    <RootNamespace>Logger</RootNamespace>
+    <AssemblyName>Logger</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,21 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ICoordinates.cs" />
-    <Compile Include="ISize.cs" />
+    <Compile Include="ConsoleSrc.cs" />
+    <Compile Include="FileSrc.cs" />
+    <Compile Include="ILogger.cs" />
+    <Compile Include="ISource.cs" />
+    <Compile Include="LevelOfDetalization.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StructAndEnumTasksRunner.cs" />
-    <Compile Include="Person.cs" />
-    <Compile Include="Rectangle.cs" />
-    <Compile Include="Month.cs" />
-    <Compile Include="Colors.cs" />
-    <Compile Include="LongRange.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Utilites\UserInterface.csproj">
-      <Project>{ad7322c0-0e35-4ed4-87b9-891020969ea4}</Project>
-      <Name>UserInterface</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
