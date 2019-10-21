@@ -17,20 +17,9 @@ namespace Logger
             DetalizationLevel = detalizationLevel;
         }
 
-        public void WriteMessage(string exceptionMessage)
+        public void LogException(Exception ex)
         {
-            switch(DetalizationLevel)
-            {
-                case LevelOfDetalization.Info :
-                    Src.Write(exceptionMessage);
-                    break;
-            }
-            
-        }
-
-        public string ReadMessage()
-        {
-            return Src.Read();
+            Src.Write(DetalizationLevel.CallMessageBuilder(ex));
         }
     }
 }

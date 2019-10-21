@@ -9,7 +9,6 @@ namespace Logger
     public interface ILogger
     {
         void Configuration(ISource src, LevelOfDetalization detalizationLevel);
-        void WriteMessage(string exceptionMessage);
-        string ReadMessage();
+        void LogException(Exception ex);
     }
 }

@@ -1,16 +1,19 @@
 ﻿using System;
 using UserInterface;
 using StructAndEnumTasks;
+using Logger;
 
 namespace StructAndEnumTasks
 {
     public class StructAndEnumTasksRunner : IRunner
     {
         public IPrinter Printer { get; set; }
+        public ILogger Logger { get; set; }
 
-        public StructAndEnumTasksRunner(IPrinter printer)
+        public StructAndEnumTasksRunner(IPrinter printer , ILogger logger)
         {
             Printer = printer;
+            Logger = logger;
         }
 
         public void DoTask1()
@@ -23,10 +26,12 @@ namespace StructAndEnumTasks
             }
             catch (ArgumentException e)
             {
+                Logger.LogException(e);
                 Printer.Write(e.Message);
             }
             catch (Exception e)
             {
+                Logger.LogException(e);
                 Printer.Write(e.Message);
             }
 
@@ -46,10 +51,12 @@ namespace StructAndEnumTasks
             }
             catch (ArgumentException e)
             {
+                Logger.LogException(e);
                 Printer.Write(e.Message);
             }
             catch (Exception e)
             {
+                Logger.LogException(e);
                 Printer.Write(e.Message);
             }
             
@@ -67,10 +74,12 @@ namespace StructAndEnumTasks
             }
             catch(ArgumentException e)
             {
+                Logger.LogException(e);
                 Printer.Write(e.Message);
             }
             catch (Exception e)
             {
+                Logger.LogException(e);
                 Printer.Write(e.Message);
             }
         }

@@ -3,6 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 using UserInterface;
 using FileTasks;
+using Logger;
 
 
 namespace FileTasks
@@ -10,10 +11,12 @@ namespace FileTasks
     public class FilesTasksRunner : IRunner
     {
         public IPrinter Printer { get; set; }
+        public ILogger Logger { get; set; }
 
-        public FilesTasksRunner(IPrinter printer)
+        public FilesTasksRunner(IPrinter printer , ILogger logger)
         {
             Printer = printer;
+            Logger = logger;
         }
 
         public void DoTask1()
@@ -26,6 +29,7 @@ namespace FileTasks
             }
             catch (Exception e)
             {
+                Logger.LogException(e);
                 Printer.Write(e.Message);
             }
         }
@@ -41,10 +45,12 @@ namespace FileTasks
             }
             catch(ArgumentException e)
             {
+                Logger.LogException(e);
                 Printer.Write(e.Message);
             }
             catch (Exception e)
             {
+                Logger.LogException(e);
                 Printer.Write(e.Message);
             }
             

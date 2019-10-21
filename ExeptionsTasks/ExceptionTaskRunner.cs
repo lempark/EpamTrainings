@@ -8,11 +8,12 @@ namespace ExeptionsTasks
     public class ExceptionTaskRunner : IRunner
     {
         public IPrinter Printer { get; set; }
-        public MyLogger Logger { get; set; }
+        public ILogger Logger { get; set; }
 
-        public ExceptionTaskRunner(IPrinter printer)
+        public ExceptionTaskRunner(IPrinter printer , ILogger logger)
         {
             Printer = printer;
+            Logger = logger;
         }
 
         public void DoTask1_2()
@@ -61,15 +62,17 @@ namespace ExeptionsTasks
             }
             catch (StackOverflowException e)
             {
+                Logger.LogException(e);
                 Printer.Write(e.Message);
-                Logger.WriteMessage(e.Message);
             }
             catch (IndexOutOfRangeException e)
             {
+                Logger.LogException(e);
                 Printer.Write(e.Message);
             }
             catch(Exception e)
             {
+                Logger.LogException(e);
                 Printer.Write(e.Message);
             }
         }
@@ -88,23 +91,24 @@ namespace ExeptionsTasks
             catch (ArgumentException e)
             when(e.ParamName == "a")
             {
+                Logger.LogException(e);
                 Printer.Write(e.Message);
             }
             catch (ArgumentException e)
             when (e.ParamName == "b")
             {
+                Logger.LogException(e);
                 Printer.Write(e.Message);
             }
             catch(Exception e)
             {
+                Logger.LogException(e);
                 Printer.Write(e.Message);
             }
         }
             
         public void Run()
         {
-            Logger = new MyLogger();
-            Logger.Configuration(new FileSrc(@"C:\Users\SIB\Desktop"), LevelOfDetalization.Info);
             Printer.Write("\nExeptionTasks\n#################################################");
             DoTask1_2();
             DoTask4();

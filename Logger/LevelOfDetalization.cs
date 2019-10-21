@@ -6,11 +6,25 @@ using System.Threading.Tasks;
 
 namespace Logger
 {
-    public enum LevelOfDetalization
+    public class LevelOfDetalization
     {
-        Info ,
-        Trace,
-        Debug,
-        Critical
+        public delegate string MessageBuilder(Exception ex);
+        private MessageBuilder buildMessage;
+        public readonly static LevelOfDetalization info;
+
+        static LevelOfDetalization()
+        {
+            info = new LevelOfDetalization() { buildMessage = Info };
+        }
+
+        public static string Info(Exception ex)
+        {
+            return ex.Message;
+        }
+
+        public string CallMessageBuilder(Exception ex)
+        {
+            return buildMessage?.Invoke(ex);
+        }
     }
 }

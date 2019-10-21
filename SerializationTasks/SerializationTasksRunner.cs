@@ -3,8 +3,8 @@ using UserInterface;
 
 namespace SerializationTasks
 {
-    class SerializationTasksRunner : IRunner
-    {
+    //class SerializationTasksRunner : IRunner
+    //{
 
-    }
+    //}
 }

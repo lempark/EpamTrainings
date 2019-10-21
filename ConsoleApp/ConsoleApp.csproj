@@ -59,6 +59,10 @@
       <Project>{3e1a2c1d-5b9c-41cd-af86-283bb604a4b1}</Project>
       <Name>FilesTasks</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Logger\Logger.csproj">
+      <Project>{5f58be37-7631-48ee-9ab5-4b35f7f028ff}</Project>
+      <Name>Logger</Name>
+    </ProjectReference>
     <ProjectReference Include="..\StructAndEnumTasks\StructAndEnumTasks.csproj">
       <Project>{4652b25c-793a-4990-adb6-4d0e2bf286d0}</Project>
       <Name>StructAndEnumTasks</Name>

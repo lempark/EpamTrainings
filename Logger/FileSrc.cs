@@ -14,15 +14,15 @@ namespace Logger
 
         public void Write(string msg)
         {
-            using (FileStream fs = new FileStream(Path, FileMode.Append)) 
+            using (TextWriter fs = new StreamWriter(Path, true))
             {
-                fs.wr(msg + "\n");
+                fs.WriteLine(msg + "\n");
             }
         }
 
         public string Read()
         {
-            using (StreamReader fs = File.OpenText(Path))
+            using (TextReader fs = File.OpenText(Path))
             {
                 return fs.ReadLine();
             }
