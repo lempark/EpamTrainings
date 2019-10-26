@@ -15,7 +15,7 @@ namespace ConsoleApp
             ConsolePrinter printer = new ConsolePrinter();
 
             MyLogger logger = new MyLogger();
-            logger.Configuration(new FileSrc(@"C:\Users\wentr\Desktop\Logs.txt"), LevelOfDetalization.info);
+            logger.Configuration(new FileSrc(@"C:\Users\SIB\Desktop\Logs.txt"), LevelOfDetalization.info);
 
             StructAndEnumTasksRunner structRunner = new StructAndEnumTasksRunner(printer , logger);
             ExceptionTaskRunner exeptionRunner = new ExceptionTaskRunner(printer, logger);

@@ -39,9 +39,9 @@ namespace FileTasks
             Printer.Write("\nTask 2  ----------------------------------------------\n");
             try
             {
-                DirectoryInfo newDir = new DirectoryInfo(@"C:\ddff");
+                DirectoryInfo newDir = new DirectoryInfo(@"C:\Users\SIB\Desktop");
                 TxtSearcher searcher = new TxtSearcher(newDir);
-                searcher.Search("r", Printer);
+                searcher.Search("L", Printer);
             }
             catch(ArgumentException e)
             {
