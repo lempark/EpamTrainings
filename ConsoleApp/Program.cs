@@ -6,6 +6,7 @@ using ExeptionsTasks;
 using FileTasks;
 using Logger;
 using ReflectionTasks;
+using SerializationTasks;
 
 namespace ConsoleApp
 {
@@ -21,11 +22,13 @@ namespace ConsoleApp
             StructAndEnumTasksRunner structRunner = new StructAndEnumTasksRunner(printer , logger);
             ExceptionTaskRunner exeptionRunner = new ExceptionTaskRunner(printer, logger);
             FilesTasksRunner filesRunner = new FilesTasksRunner(printer, logger);
+            SerializationTasksRunner serializationRunner = new SerializationTasksRunner(printer, logger);
             ReflectionTasksRunner reflectionRunner = new ReflectionTasksRunner(printer, logger);
 
             structRunner.Run();
             exeptionRunner.Run();
             filesRunner.Run();
+            serializationRunner.Run();
             reflectionRunner.Run();
 
             Console.Read();

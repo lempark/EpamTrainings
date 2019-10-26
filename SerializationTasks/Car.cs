@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using UserInterface;
 
 namespace SerializationTasks  
 {
@@ -16,5 +18,10 @@ namespace SerializationTasks
         public decimal total;
 
         public Car() { }
+
+        public void ShowFields(IPrinter printer)
+        {
+            printer.Write($"carid: {carld} , price: {price} , quantity: {quantity}");
+        }
     }
 }

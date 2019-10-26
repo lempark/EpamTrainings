@@ -45,11 +45,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Car.cs" />
-    <Compile Include="Formatter.cs" />
+    <Compile Include="ListOfCarFormatter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SerializationTasksRunner.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Logger\Logger.csproj">
+      <Project>{5f58be37-7631-48ee-9ab5-4b35f7f028ff}</Project>
+      <Name>Logger</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Utilites\UserInterface.csproj">
       <Project>{ad7322c0-0e35-4ed4-87b9-891020969ea4}</Project>
       <Name>UserInterface</Name>

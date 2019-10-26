@@ -7,8 +7,8 @@
     <ProjectGuid>{3E1A2C1D-5B9C-41CD-AF86-283BB604A4B1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FileTasks</RootNamespace>
-    <AssemblyName>FileTasks</AssemblyName>
+    <RootNamespace>FilesTasks</RootNamespace>
+    <AssemblyName>FilesTasks</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

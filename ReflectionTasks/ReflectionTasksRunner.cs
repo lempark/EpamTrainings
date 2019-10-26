@@ -28,7 +28,7 @@ namespace ReflectionTasks
             investigator.Printer = Printer;
             try
             {
-                investigator.Assembly = Assembly.LoadFrom(@"..\..\..\FileTasks\bin\Debug\FileTasks.dll");
+                investigator.Assembly = Assembly.LoadFrom(@"..\..\..\FilesTasks\bin\Debug\FilesTasks.dll");
                 investigator.Investigate();
             }
             catch (System.IO.FileNotFoundException e)
