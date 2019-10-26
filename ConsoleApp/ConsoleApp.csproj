@@ -63,6 +63,14 @@
       <Project>{5f58be37-7631-48ee-9ab5-4b35f7f028ff}</Project>
       <Name>Logger</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ReflectionTasks\ReflectionTasks.csproj">
+      <Project>{ba3da030-f07b-4cb4-b0a3-03338d7277c4}</Project>
+      <Name>ReflectionTasks</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SerializationTasks\SerializationTasks.csproj">
+      <Project>{79c5d4c7-28cc-4142-95de-d9638ba37264}</Project>
+      <Name>SerializationTasks</Name>
+    </ProjectReference>
     <ProjectReference Include="..\StructAndEnumTasks\StructAndEnumTasks.csproj">
       <Project>{4652b25c-793a-4990-adb6-4d0e2bf286d0}</Project>
       <Name>StructAndEnumTasks</Name>

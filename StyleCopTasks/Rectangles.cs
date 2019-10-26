@@ -8,6 +8,6 @@ namespace StyleCopTasks
 {
     public class Rectangles
     {
-        public
+        
     }
 }
