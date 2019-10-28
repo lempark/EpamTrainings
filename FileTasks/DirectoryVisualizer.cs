@@ -13,6 +13,16 @@ namespace FileTasks
     {
         public static void VisualizeFilesAndDirectories(DirectoryInfo dir,  IPrinter printer, int tabulation)
         {
+            if(printer == null || dir == null)
+            {
+                throw new ArgumentNullException();
+            }
+            if(!dir.Exists)
+            {
+                throw new ArgumentException("Directory not found");
+            }
+
+            
             printer.Write(new String('\t', tabulation) + dir.Name);
     
             DirectoryInfo[] subDirectories = dir.GetDirectories();

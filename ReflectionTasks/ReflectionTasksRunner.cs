@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
+using System.Configuration;
 using UserInterface;
-using Logger;
+using Logger; 
 
 namespace ReflectionTasks
 {
@@ -23,12 +24,12 @@ namespace ReflectionTasks
 
         public void DoTask1()
         {
-            Printer.Write("\nTask 1-2  ----------------------------------------------\n");
+            Printer.Write(ConfigurationManager.AppSettings["ReflectionTask1Str"]);
             AssemblyInvestigator investigator = new AssemblyInvestigator();
             investigator.Printer = Printer;
             try
             {
-                investigator.Assembly = Assembly.LoadFrom(@"..\..\..\FilesTasks\bin\Debug\FilesTasks.dll");
+                investigator.Assembly = Assembly.LoadFrom(ConfigurationManager.AppSettings["AssemblyLoadFromPath"]);
                 investigator.Investigate();
             }
             catch (System.IO.FileNotFoundException e)
@@ -55,7 +56,7 @@ namespace ReflectionTasks
 
         public void Run()
         {
-            Printer.Write("\nReflectionTasks\n#################################################");
+            Printer.Write(ConfigurationManager.AppSettings["ReflectionTasksStr"]);
             DoTask1();
         }
     }

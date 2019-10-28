@@ -29,6 +29,9 @@ namespace FileTasks
         {
             if (String.IsNullOrEmpty(name))
                 throw new ArgumentException("Name can not be empty");
+            if (printer == null)
+                throw new ArgumentNullException();
+
     
             FileInfo[] files = subDir.GetFiles("*" + name + "*.txt");
             foreach (FileInfo file in files)

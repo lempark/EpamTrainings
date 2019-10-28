@@ -1,9 +1,8 @@
 ﻿using System;
 using System.IO;
-using System.Collections.Generic;
 using UserInterface;
-using FileTasks;
 using Logger;
+using System.Configuration;
 
 
 namespace FileTasks
@@ -21,10 +20,10 @@ namespace FileTasks
 
         public void DoTask1()
         {
-            Printer.Write("\nTask 1  ----------------------------------------------\n");
+            Printer.Write(ConfigurationManager.AppSettings["FilesTask1Str"]);
             try
             {
-                DirectoryInfo directory = new DirectoryInfo(@"C:\Windows\Branding");
+                DirectoryInfo directory = new DirectoryInfo(ConfigurationManager.AppSettings["DirectoryForVisualize"]);
                 DirectoryVisualizer.VisualizeFilesAndDirectories(directory, new ConsolePrinter(), 0);
             }
             catch (Exception e)
@@ -36,10 +35,10 @@ namespace FileTasks
 
         public void DoTask2()
         {
-            Printer.Write("\nTask 2  ----------------------------------------------\n");
+            Printer.Write(ConfigurationManager.AppSettings["FilesTask2Str"]);
             try
             {
-                DirectoryInfo newDir = new DirectoryInfo(@"C:\Users\SIB\Desktop");
+                DirectoryInfo newDir = new DirectoryInfo(ConfigurationManager.AppSettings["DirectoryForTxtSearch"]);
                 TxtSearcher searcher = new TxtSearcher(newDir);
                 searcher.Search("L", Printer);
             }
@@ -58,10 +57,9 @@ namespace FileTasks
 
         public void Run()
         {
-            Printer.Write("\nFilesTasks\n#################################################");
+            Printer.Write(ConfigurationManager.AppSettings["FilesTasksStr"]);
             DoTask1();
             DoTask2();
-
         }
     }
 }

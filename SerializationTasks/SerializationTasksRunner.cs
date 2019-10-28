@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
 using UserInterface;
 using Logger;
-using System.IO;
 
 namespace SerializationTasks
 {
@@ -38,11 +39,11 @@ namespace SerializationTasks
             ListOfCarFormatter formatter = new ListOfCarFormatter();
 
             formatter.Cars = Cars;
-            formatter.BinaryPath = @"D:\SIB\Repos\cars.bin";
-            formatter.XmlPath = @"D:\SIB\Repos\cars.xml";
-            formatter.JsonPath = @"D:\SIB\Repos\carrs.json";
+            formatter.BinaryPath = ConfigurationManager.AppSettings["SerializationBinaryPath"];
+            formatter.XmlPath = ConfigurationManager.AppSettings["SerializationXmlPath"];
+            formatter.JsonPath = ConfigurationManager.AppSettings["SerializationJsonPath"];
 
-            
+
             try
             {
                 formatter.BinarySerialize();

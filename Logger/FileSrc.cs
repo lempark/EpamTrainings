@@ -14,7 +14,7 @@ namespace Logger
 
         public void Write(string msg)
         {
-            using (TextWriter fs = new StreamWriter(Path, true))
+            using (TextWriter fs = new StreamWriter(Path , true))
             {
                 fs.WriteLine(msg + "\n");
             }

@@ -2,6 +2,7 @@
 using UserInterface;
 using ExceptionsTasks;
 using Logger;
+using System.Configuration;
 
 namespace ExeptionsTasks
 {
@@ -10,55 +11,21 @@ namespace ExeptionsTasks
         public IPrinter Printer { get; set; }
         public ILogger Logger { get; set; }
 
-        public ExceptionTaskRunner(IPrinter printer , ILogger logger)
+        public ExceptionTaskRunner(IPrinter printer, ILogger logger)
         {
             Printer = printer;
             Logger = logger;
         }
-
-        public void DoTask1_2()
-        {
-            Printer.Write("\nTask 1-2  ----------------------------------------------\n");
-
-            Printer.Write("Do you want to generate exeptions? (the program will be crashed) y/n ");
-            if (Printer.Read() == "y")
-            {
-                ExceptionGenerator generator = new ExceptionGenerator();
-
-                Printer.Write("type 1 to generate StackOverFlowExeption , and 2 to generate IndexOutOfRangeExeption");
-                string answer1 = Printer.Read();
-
-                switch (answer1)
-                {
-                    case "1":
-                        generator.GenerateStackOverFlowExeption();
-                        break;
-                    case "2":
-                        generator.GenerateIndexOutOfRangeExeption();
-                        break;
-                }
-            }
-        }
-                
+      
         public void DoTask4()
         {
-            Printer.Write("\nTask 4  ----------------------------------------------\n");
+            Printer.Write(ConfigurationManager.AppSettings["ExceptionTask4Str"]);
 
             ExceptionHandler handler = new ExceptionHandler();
-            Printer.Write("type 1 to handle StackOverFlowExeption , and 2 to handle IndexOutOfRangeExeption");
-
-            string answer2 = Printer.Read();
             try
             {
-                switch(answer2)
-                {
-                    case "1":
-                        handler.HandleStackOverFlowExeption();
-                        break;
-                    case "2":
-                        handler.HandleIndexOutOfRangeExeption();
-                        break;
-                }
+                handler.HandleStackOverFlowExeption();
+                handler.HandleIndexOutOfRangeExeption();       
             }
             catch (StackOverflowException e)
             {
@@ -79,7 +46,7 @@ namespace ExeptionsTasks
 
         public void DoTask5()
         {
-            Printer.Write("\nTask 5  ----------------------------------------------\n");
+            Printer.Write(ConfigurationManager.AppSettings["ExceptionTask5Str"]);
 
             Calculator calculator = new Calculator();
 
@@ -109,8 +76,7 @@ namespace ExeptionsTasks
             
         public void Run()
         {
-            Printer.Write("\nExeptionTasks\n#################################################");
-            DoTask1_2();
+            Printer.Write(ConfigurationManager.AppSettings["ExceptionTasksStr"]);
             DoTask4();
             DoTask5();
         }
