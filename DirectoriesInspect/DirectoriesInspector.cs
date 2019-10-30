@@ -1,39 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 
-namespace DirectoriesInspect
+namespace InspectTasks
 {
     public class DirectoriesInspector : IInspector<FileInfo>
     {
-        public List<DirectoryInfo> Directories { get; set; }
+        private List<DirectoryInfo> directories;
+
+        public DirectoriesInspector(List<DirectoryInfo> directories)
+        {
+            this.directories = directories;
+        }
 
         public IEnumerable<FileInfo> GetDuplicates()
         {
             HashSet<FileInfo> result = new HashSet<FileInfo>(new FilesEqualsComparer());
-            result = GetFilesSet(this.Directories[0]);
-            HashSet<FileInfo> temp = new HashSet<FileInfo>();
-            temp = GetFilesSet(Directories[1]);
-            result.IntersectWith(temp);
+            result = GetFilesSet(this.directories[0]);
 
-            //foreach (DirectoryInfo dir in this.Directories.Skip(1))
-            //{
-            //    HashSet<FileInfo> tempp = new HashSet<FileInfo>();
-            //    temp = GetFilesSet(dir);
-            //    result.IntersectWith(tempp);
-            //}
+            foreach (DirectoryInfo dir in this.directories.Skip(1))
+            {
+                result.IntersectWith(GetFilesSet(dir));
+            }
 
             return result;
         }
 
         public IEnumerable<FileInfo> GetUniques()
         {
-            HashSet<FileInfo> result = GetFilesSet(this.Directories.First());
+            HashSet<FileInfo> result = GetFilesSet(this.directories.First());
 
-            foreach (DirectoryInfo dir in this.Directories.Skip(1))
+            foreach (DirectoryInfo dir in this.directories.Skip(1))
             {
                 result.SymmetricExceptWith(GetFilesSet(dir));
             }
@@ -50,7 +48,7 @@ namespace DirectoriesInspect
 
             if (!dir.Exists)
             {
-                throw new ArgumentException("Directory not found");
+                throw new DirectoryNotFoundException();
             }
 
             HashSet<FileInfo> foundFiles = new HashSet<FileInfo>(new FilesEqualsComparer());

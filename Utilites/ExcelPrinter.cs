@@ -25,13 +25,6 @@ namespace UserInterface
            string tableName,
            bool inRowFormatting)
         {
-            if (collIndex < 0 || rowIndex < 0)
-                throw new ArgumentException("index should be greater than 0");
-            if (string.IsNullOrEmpty(path))
-                throw new ArgumentException("path is empty");
-            if (string.IsNullOrEmpty(tableName))
-                throw new ArgumentException("tableName is empty");
-
             this.collIndex = collIndex;
             this.rowIndex = rowIndex;
             this.path = path;
@@ -42,9 +35,17 @@ namespace UserInterface
 
         public void Write(string message)
         {
+            if (collIndex < 0 || rowIndex < 0)
+                throw new ArgumentException("index should be greater than 0");
+            if (string.IsNullOrEmpty(path))
+                throw new ArgumentException("path is empty");
+            if (string.IsNullOrEmpty(tableName))
+                throw new ArgumentException("tableName is empty");
+
             FileInfo file = new FileInfo(path);
+
             if (!file.Exists)
-                throw new FileNotFoundException();
+                throw new ArgumentException("file not found");
 
             using (ExcelPackage excelPackage = new ExcelPackage(file))
             {
@@ -66,7 +67,7 @@ namespace UserInterface
 
         public string Read()
         {
-            throw new NotImplementedException("Read method is not implemented");
+            throw new NotImplementedException();  
         }
     }
 }

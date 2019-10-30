@@ -7,7 +7,7 @@ using FileTasks;
 using Logger;
 using ReflectionTasks;
 using SerializationTasks;
-using DirectoriesInspect;
+using InspectTasks;
 using System.Configuration;
 
 
@@ -34,13 +34,20 @@ namespace ConsoleApp
             SerializationTasksRunner serializationRunner = new SerializationTasksRunner(printer, logger);
             ReflectionTasksRunner reflectionRunner = new ReflectionTasksRunner(printer, logger);
             DirectoriesInspectRunner dirInspectRunner = new DirectoriesInspectRunner(excelPrinter, logger);
+            ExcelsInspectorRunner excelInspectRunner = new ExcelsInspectorRunner(new ExcelPrinter(
+                                                                                                    1,
+                                                                                                    1,
+                                                                                                    ConfigurationManager.AppSettings["DirectoriesInspectExcelPath"],
+                                                                                                    "123",
+                                                                                                    false) , logger);
 
-            structRunner.Run();
-            exeptionRunner.Run();
-            filesRunner.Run();
-            serializationRunner.Run();
-            reflectionRunner.Run();
+            //structRunner.Run();
+            //exeptionRunner.Run();
+            //filesRunner.Run();
+            //serializationRunner.Run();
+            //reflectionRunner.Run();
             dirInspectRunner.Run();
+            excelInspectRunner.Run();
             Console.Read();
         }
     }

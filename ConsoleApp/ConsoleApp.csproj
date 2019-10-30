@@ -52,9 +52,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DirectoriesInspect\DirectoriesInspect.csproj">
+    <ProjectReference Include="..\DirectoriesInspect\InspectTasks.csproj">
       <Project>{0243e78c-f3aa-46a8-9730-2d1f8fdd7ad4}</Project>
-      <Name>DirectoriesInspect</Name>
+      <Name>InspectTasks</Name>
     </ProjectReference>
     <ProjectReference Include="..\ExeptionsTasks\ExceptionsTasks.csproj">
       <Project>{4b6c4e89-a98b-4a97-9048-dd5589ec5224}</Project>

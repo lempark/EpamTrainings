@@ -21,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectionTasks", "Reflecti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StyleCopTasks", "StyleCopTasks\StyleCopTasks.csproj", "{B59E5C3D-3632-4B33-AD7E-55B5106E43C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoriesInspect", "DirectoriesInspect\DirectoriesInspect.csproj", "{0243E78C-F3AA-46A8-9730-2D1F8FDD7AD4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InspectTasks", "DirectoriesInspect\InspectTasks.csproj", "{0243E78C-F3AA-46A8-9730-2D1F8FDD7AD4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
