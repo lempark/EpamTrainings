@@ -17,35 +17,35 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            ConsolePrinter printer = new ConsolePrinter();
-            ExcelPrinter excelPrinter = new ExcelPrinter(
+            IPrinter printer = new ConsolePrinter();
+            IPrinter excelPrinter = new ExcelPrinter(
                 1,
                 1,
-                ConfigurationManager.AppSettings["DirectoriesInspectExcelPath"],
+                ConfigurationManager.AppSettings["DirectoriesInspectOutputPath"],
                 ConfigurationManager.AppSettings["ExcelTableName"],
                 false);
 
             MyLogger logger = new MyLogger();
             logger.Configuration(new FileSrc(ConfigurationManager.AppSettings["LogFilePath"]), LevelOfDetalization.info);
 
-            StructAndEnumTasksRunner structRunner = new StructAndEnumTasksRunner(printer , logger);
-            ExceptionTaskRunner exeptionRunner = new ExceptionTaskRunner(printer, logger);
-            FilesTasksRunner filesRunner = new FilesTasksRunner(printer, logger);
-            SerializationTasksRunner serializationRunner = new SerializationTasksRunner(printer, logger);
-            ReflectionTasksRunner reflectionRunner = new ReflectionTasksRunner(printer, logger);
-            DirectoriesInspectRunner dirInspectRunner = new DirectoriesInspectRunner(excelPrinter, logger);
-            ExcelsInspectorRunner excelInspectRunner = new ExcelsInspectorRunner(new ExcelPrinter(
-                                                                                                    1,
-                                                                                                    1,
-                                                                                                    ConfigurationManager.AppSettings["DirectoriesInspectExcelPath"],
-                                                                                                    "123",
-                                                                                                    false) , logger);
+            IRunner structRunner = new StructAndEnumTasksRunner(printer , logger);
+            IRunner exeptionRunner = new ExceptionTaskRunner(printer, logger);
+            IRunner filesRunner = new FilesTasksRunner(printer, logger);
+            IRunner serializationRunner = new SerializationTasksRunner(printer, logger);
+            IRunner reflectionRunner = new ReflectionTasksRunner(printer, logger);
+            IRunner dirInspectRunner = new DirectoriesInspectRunner(excelPrinter, logger);
+            IRunner excelInspectRunner = new ExcelsInspectorRunner(new ExcelPrinter(
+                                                                                    1,
+                                                                                    1,
+                                                                                    ConfigurationManager.AppSettings["DirectoriesInspectOutputPath"],
+                                                                                    "123",
+                                                                                    false) , logger);
 
-            //structRunner.Run();
-            //exeptionRunner.Run();
-            //filesRunner.Run();
-            //serializationRunner.Run();
-            //reflectionRunner.Run();
+            structRunner.Run();
+            exeptionRunner.Run();
+            filesRunner.Run();
+            serializationRunner.Run();
+            reflectionRunner.Run();
             dirInspectRunner.Run();
             excelInspectRunner.Run();
             Console.Read();

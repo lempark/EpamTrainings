@@ -60,7 +60,7 @@
       <Project>{4b6c4e89-a98b-4a97-9048-dd5589ec5224}</Project>
       <Name>ExceptionsTasks</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FileTasks\FilesTasks.csproj">
+    <ProjectReference Include="..\FilesTasks\FilesTasks.csproj">
       <Project>{3e1a2c1d-5b9c-41cd-af86-283bb604a4b1}</Project>
       <Name>FilesTasks</Name>
     </ProjectReference>

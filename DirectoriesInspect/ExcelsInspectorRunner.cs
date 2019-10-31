@@ -23,8 +23,16 @@ namespace InspectTasks
         public void Run()
         {
             List<(string path, string tableName, int collIndex, int startRowIndex)> collumnAdresses = new List<(string path, string tableName, int collIndex, int startRowIndex)>();
-            collumnAdresses.Add((@"..\..\..\EpamTasksDirectories\233.xlsx", "test", 1, 1));
-            collumnAdresses.Add((@"..\..\..\EpamTasksDirectories\233.xlsx", "test", 2, 1));
+
+            collumnAdresses.Add((ConfigurationManager.AppSettings["ExcelInspectFirstFilePath"],
+                                 ConfigurationManager.AppSettings["ExcelInspectFirstTableName"], 
+                                 int.Parse(ConfigurationManager.AppSettings["FirstTableCollumnIndex"]),
+                                 int.Parse(ConfigurationManager.AppSettings["FirstTableStartRowIndex"])));
+
+            collumnAdresses.Add((ConfigurationManager.AppSettings["ExcelInspectSecondFilePath"], 
+                                 ConfigurationManager.AppSettings["ExcelInspectSecondTableName"],
+                                 int.Parse(ConfigurationManager.AppSettings["SecondTableCollumnIndex"]),
+                                 int.Parse(ConfigurationManager.AppSettings["SecondTableStartRowIndex"])));
 
             IInspector<string> inspector = new ExcelsInspector(collumnAdresses);
 
