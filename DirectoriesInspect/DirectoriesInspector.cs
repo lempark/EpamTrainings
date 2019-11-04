@@ -17,7 +17,7 @@ namespace InspectTasks
         public IEnumerable<FileInfo> GetDuplicates()
         {
             HashSet<FileInfo> result = new HashSet<FileInfo>(new FilesEqualsComparer());
-            result = GetFilesSet(this.directories[0]);
+            result = GetFilesSet(this.directories.First());
 
             foreach (DirectoryInfo dir in this.directories.Skip(1))
             {
@@ -29,7 +29,8 @@ namespace InspectTasks
 
         public IEnumerable<FileInfo> GetUniques()
         {
-            HashSet<FileInfo> result = GetFilesSet(this.directories.First());
+            HashSet<FileInfo> result = new HashSet<FileInfo>(new FilesEqualsComparer());
+            result = GetFilesSet(this.directories.First());
 
             foreach (DirectoryInfo dir in this.directories.Skip(1))
             {
