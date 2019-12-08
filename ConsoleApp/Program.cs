@@ -7,7 +7,8 @@ using FileTasks;
 using Logger;
 using ReflectionTasks;
 using SerializationTasks;
-using InspectTasks;
+using InspectTasks.Excel;
+using InspectTasks.Directories;
 using System.Configuration;
 
 

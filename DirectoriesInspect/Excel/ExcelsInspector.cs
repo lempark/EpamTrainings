@@ -7,7 +7,7 @@ using System.IO;
 using OfficeOpenXml;
 
 
-namespace InspectTasks
+namespace InspectTasks.Excel
 {
     public class ExcelsInspector : IInspector<string>
     {
@@ -45,13 +45,6 @@ namespace InspectTasks
 
         private HashSet<string> GetValuesOfCollumn((string path, string tableName, int collIndex , int startRowIndex) collAdress)
         {
-            FileInfo file = new FileInfo(collAdress.path);
-
-            if (!file.Exists)
-            {
-                throw new FileNotFoundException();
-            }
-
             if (collAdress.collIndex <= 0)
             {
                 throw new ArgumentException("parametr shold be greater than 0", nameof(collAdress.collIndex));
@@ -64,10 +57,14 @@ namespace InspectTasks
 
             HashSet<string> result = new HashSet<string>();
 
-            using (ExcelPackage excelPackage = new ExcelPackage(file))
+            using (ExcelPackage excelPackage = ExcelPackageFactory.CreateExcel(collAdress.path))
             {
-                ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets[collAdress.tableName];
+                if (excelPackage == null)
+                {
+                    throw new FileNotFoundException();
+                }
 
+                ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets[collAdress.tableName];
                 if (worksheet == null)
                 {
                     throw new ArgumentException("table name not found");

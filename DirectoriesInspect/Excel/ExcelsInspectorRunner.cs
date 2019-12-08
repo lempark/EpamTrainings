@@ -1,20 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using UserInterface;
-using Logger;
-using System.IO;
 using System.Configuration;
 using System.Diagnostics;
+using System.IO;
+using UserInterface;
+using Logger;
+using InspectTasks.Directories;
 
-namespace InspectTasks
+namespace InspectTasks.Excel
 {
-    public class DirectoriesInspectRunner : IRunner
+    public class ExcelsInspectorRunner : IRunner
     {
         public IPrinter Printer { get; set; }
 
         public ILogger Logger { get; set; }
 
-        public DirectoriesInspectRunner(IPrinter printer, ILogger logger)
+        public ExcelsInspectorRunner(IPrinter printer, ILogger logger)
         {
             this.Printer = printer;
             this.Logger = logger;
@@ -22,18 +23,23 @@ namespace InspectTasks
 
         public void Run()
         {
+            List<(string path, string tableName, int collIndex, int startRowIndex)> collumnAdresses = new List<(string path, string tableName, int collIndex, int startRowIndex)>();
+
+            collumnAdresses.Add((ConfigurationManager.AppSettings["ExcelInspectFirstFilePath"],
+                                 ConfigurationManager.AppSettings["ExcelInspectFirstTableName"], 
+                                 int.Parse(ConfigurationManager.AppSettings["FirstTableCollumnIndex"]),
+                                 int.Parse(ConfigurationManager.AppSettings["FirstTableStartRowIndex"])));
+
+            collumnAdresses.Add((ConfigurationManager.AppSettings["ExcelInspectSecondFilePath"], 
+                                 ConfigurationManager.AppSettings["ExcelInspectSecondTableName"],
+                                 int.Parse(ConfigurationManager.AppSettings["SecondTableCollumnIndex"]),
+                                 int.Parse(ConfigurationManager.AppSettings["SecondTableStartRowIndex"])));
+
+            IInspector<string> inspector = new ExcelsInspector(collumnAdresses);
+
             try
             {
-                List<DirectoryInfo> directories = new List<DirectoryInfo>();
-                directories.Add(new DirectoryInfo(ConfigurationManager.AppSettings["DirectoriesInspectPathDir1"]));
-                directories.Add(new DirectoryInfo(ConfigurationManager.AppSettings["DirectoriesInspectPathDir2"]));
-
-                DirectoriesInspector inspector = new DirectoriesInspector(directories);
-
                 var startTime = Stopwatch.StartNew();
-
-                this.Printer.Write(ConfigurationManager.AppSettings["DuplicatesStr"]);
-                FilesWriter.Write(inspector.GetDuplicates(), this.Printer);
 
                 this.Printer.Write(ConfigurationManager.AppSettings["UniquesStr"]);
                 FilesWriter.Write(inspector.GetUniques(), this.Printer);
@@ -69,7 +75,6 @@ namespace InspectTasks
                 this.Printer.Write(e.Message);
                 this.Logger.LogException(e);
             }
-
         }
     }
 }

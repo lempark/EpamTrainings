@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using UserInterface;
 
-namespace InspectTasks
+namespace InspectTasks.Directories
 {
     public static class FilesWriter
     {

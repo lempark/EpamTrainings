@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace InspectTasks
+namespace InspectTasks.Directories
 {
     class FilesEqualsComparer : IEqualityComparer<FileInfo>
     {
